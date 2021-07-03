@@ -1,0 +1,36 @@
+button {
+    background-color: antiquewhite;
+    color: black;
+}
+
+ .App{
+     background-color: white;
+ }
+
+  .card{
+    background-color:papayawhip;
+  }
+
+  h1{
+    color: white;
+    background-color: #0B0985;
+    text-align: center;
+    border-radius: 20px 20px 0px 0px;
+  }
+
+  h2{
+    text-align: center;
+  }
+
+  .barraNavegacion{
+    display: flex;
+    justify-content: center;
+    font-style: italic 1px;
+    font-size: 15px; 
+    
+  }
+
+  footer{
+    font-style: black;
+  }
+
