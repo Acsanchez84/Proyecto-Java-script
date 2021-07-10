@@ -1,7 +1,8 @@
 import React from 'react'
 import './style.scss';
 import CartWidged from "../CartwidgedComponent";
-import {Nav, Navbar, NavDropdown, Button, FormControl, Form, NavBar} from 'react-bootstrap'
+import {Nav, NavDropdown, Button, FormControl, Form, NavBar} from 'react-bootstrap'
+import imaagenes from "../../public/imagenes/carrito.jpg"
 
 
 function Navbar(){
@@ -56,5 +57,5 @@ function Navbar(){
   
   
 
-    export default NavBar; 
+    export default Navbar; 
   

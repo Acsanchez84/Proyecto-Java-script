@@ -1,23 +1,22 @@
-import React from 'react'
-import CardComponent from './components/CardComponent';
+import React, { useEffect, useState } from 'react'
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
-import { NavbarComponent } from './components/CardComponent';
+//import { NavbarComponent } from './components/ItemListContainer';
 import  NavBar from './components/NavbarComponent';
-import { HomeContainer} from '/.components/container/HomeContainer';
-import { ItemListContainer} from './container/ItemListContainer';
 import './App.css';
 import { footer } from './components/footerComponent';
 import{Navbarcomponent} from '/.components/NavbarComponent/NavBar';
-
-
+import ItemListContainer from './components/ItemListContainer';
+import CardComponent from './CardComponent';
 
 function App() {
   return (
 
     <>
     <NavBar/>
+    <productos/>
     <Navbarcomponent/>
-    <ItemListContainer/>
+    <CardComponent/>
+    <ItemListContainer Saludo={"Bienvenidos a VICA"}/>
 
  
     </>
@@ -25,8 +24,4 @@ function App() {
       
   }
 
-export default App;
-
-
-
-
+export default App; 

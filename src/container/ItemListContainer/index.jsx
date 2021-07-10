@@ -1,131 +1,116 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import {useEffect, useState} from "react";
 import './style.scss';
+import ItemCountComponent from "../../components/ItemCount";
+import item from "../../components/item";
+import itemList from "../../components/itemList";
 
-function Welcome(props) {
-  return <h1>Bienvanido a Vica!!, {props.name}</h1>;
+
+  
+function products(){
+
+  const [ items, setItems] = useState ([])
+  const [ fireItems, setFireItems] = useState ([])
+
+  useEffect (() => {
+    const promesa = new Promise ((resolve, reject)=>{
+    setTimeOut (function(){
+      resolve(productos);
+    }, 2000);
+
+    }
+    )
+
+    promesa.then( result => setItems(result))
+    promesa.catch( err = console.log("salio mal"))
+  }, []);
+
+  return( 
+    <div>
+      <h2>{greeting} </h2>
+      { items ? <itemList items={items}/> : <h2>Loading </h2>}
+
+    </div>
+  )
+
+
+
+const baseDeDatos = [
+  {
+      id: 1,
+      nombre: 'Ref: bolso amarillo' ,
+      precio: 75000,
+      imagen: 'imagenes/bolsoamarillo.jpg'
+  },
+  {
+      id: 2,
+      nombre: 'Ref: Vica Kids',
+      precio: 50000,
+      imagen: 'imagenes/vicakids.jpg'
+  },
+  {
+      id: 3,
+      nombre: 'Ref: Bolso Hombre',
+      precio: 65000,
+      imagen: 'imagenes/hombre.jpg'
+  },
+  {
+      id: 4,
+      nombre: 'Ref: Morral Vica',
+      precio: 120000,
+      imagen: 'imagenes/morralmorado.jpg'
+  },
+
+  {
+    id: 5,
+    nombre: 'Ref: Camel cruzado',
+    precio: 65000,
+    imagen: 'imagenes/camelcruzado.jpg'
+},
+
+{
+    id: 6,
+    nombre: 'Ref: Morral rayas',
+    precio: 65000,
+    imagen: 'imagenes/morralrayas.jpg'
+},
+
+{
+    id: 7,
+    nombre: 'Ref: leopardo',
+    precio: 70000,
+    imagen: 'imagenes/leopardo.jpg'
+},
+
+{
+    id: 8,
+    nombre: 'Ref: Tula',
+    precio: 20000,
+    imagen: 'imagenes/tela.jpg'
+
 }
 
-function productos () {
-  return (
-    <>
-  <productos/>
-  
-<noscript>You need to enable JavaScript to run this app.</noscript>
-<div id="root"></div>
+
+];
+
+}
 
 
+function ItemListContainer({Saludo}){
 
-<div className="row">
-  <div className="col-sm-3">
-    <div className="card">
-      <div className="card-body">
-        <h5 className="card-title">Bolso amarillo</h5>
-        <img src="imagenes/bolsoamarillo.jpg 2px"/>
-        <p className="card-text">Bolso casual con cadena, perfecto para la oficina o tu dia a dia</p>
-        <b>$65000</b>
-        <a  className="btn btn-primary">Agregar</a>
-      </div>
-    </div>
-  </div>
-  <div className="col-sm-3">
-    <div className="card">
-      <div className="card-body">
-        <h5 className="card-title">Morral Morado</h5>
-        <img src="imagenes/morralmorado.jpg 2px"/>
-        <p className="card-text">Morral perfecto para el computador en material de facil limpieza y resistente.</p>
-        <b>$120000</b>
-        <a  className="btn btn-primary">Agregar</a>
-     
+    return(
+        <>
+            <h1>{Saludo}</h1>
+            <ItemCountComponent stock={10} initial={1}/>
+        </>
         
-      </div>
-    </div>
-  </div>
-
-  <div className="col-sm-3">
-    <div className="card">
-      <div className="card-body">
-        <h5 className="card-title">Canguros</h5>
-        <img src="imagenes/canguroamarillo.jpg 2px"/>
-        <p className="card-text">El accesorio perfecto para completar tu outfit y lo puedes usar para guardar llaves y celular.</p>
-        <b>$55000</b>
-        <a  className="btn btn-primary">Agregar</a>
-      </div>
-    </div>
-  </div>
-
-  <div className="col-sm-3">
-    <div className="card">
-      <div className="card-body">
-        <h5 className="card-title">Vica Kids</h5>
-        <img src="imagenes/vicakids.jpg 2px"/>
-        <p className="card-text">Maletas y morrales para niños en material de trafico pesado.</p>
-        <b>$70000</b>
-        <a  className="btn btn-primary">Agregar</a>
-      </div>
-    </div>
-  </div>
-
-  <div className="col-sm-3">
-    <div className="card">
-      <div className="card-body">
-        <h5 className="card-title">Bolso Hombre</h5>
-        <p className="card-text">Bolso terciado en color negro y cafe.</p>
-        <img src="imagenes/hombre.jpg 2px"/>
-        <b>$60000</b>
-        <a  className="btn btn-primary">Agregar</a>        
-      </div>
-    </div>
-  </div>
-
-  <div className="col-sm-3">
-    <div className="card">
-      <div className="card-body">
-        <h5 className="card-title">Monederos</h5>
-        <img src="imagenes/monederos.jpg 2px"/>
-        <p className="card-text">Accesorio adecuado en combo o en unidad que puedes utilizar con tus bolsos o morrales.</p>
-        <b>$30000</b>
-        <a  className="btn btn-primary">Agregar</a>        
-      </div>
-    </div>
-  </div>
-
-  <div className="col-sm-3">
-    <div className="card">
-      <div className="card-body">
-        <h5 className="card-title">Portacelular</h5>
-        <img src="imagenes/portacelular.jpg 2px"/>
-        <p className="card-text">Cuando quieras tener seguro tu celular y dinero con un diseño moderno y a la vanguardia.</p>
-        <b>$35000</b>
-        <a  className="btn btn-primary">Agregar</a>        
-      </div>
-    </div>
-  </div>
-
-
-  <div className="col-sm-3">
-    <div className="card">
-      <div className="card-body">
-        <h5 className="card-title">Morral regreso a clase</h5>
-        <img src="imagenes/morral.jpg 2px"/>
-        <p className="card-text">Morral moderno en cuero sintetico que permite guardar tus objetos para el regreso a clase.</p>
-        <b>$110000</b>
-        <a  className="btn btn-primary">Agregar</a>        
-      </div>
-    </div>
-  </div>
-  
-</div>
-
-</>
-);
-
+    );
 }
 
-export default app;
+
+export default ItemListContainer;
+
+
+
+
+export default productos;
