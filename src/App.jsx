@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
-//import { NavbarComponent } from './components/ItemListContainer';
 import  NavBar from './components/NavbarComponent';
 import './App.css';
 import { footer } from './components/footerComponent';
@@ -17,6 +16,7 @@ function App() {
     <Navbarcomponent/>
     <CardComponent/>
     <ItemListContainer Saludo={"Bienvenidos a VICA"}/>
+    <footer/>
 
  
     </>

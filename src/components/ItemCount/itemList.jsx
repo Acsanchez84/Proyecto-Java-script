@@ -1,16 +1,26 @@
-import React from 'react';
-import item from '.item.jsx';
+import React from "react";
+import {useState, useEffect} from "react";
+import ItemComponent from "../Item";
 
-function itemList({items }) {
-    return( 
-        <div className="itemList">
+function ItemListComponent(){
+    const [products, setProducts] = useState ([]);
 
-        { items.map(item=> <Item key={item.id} id={item.id}
-        tittle={item.tittle} image={item.thumbnai1} />)
-    }
-            
-        </div>
-    )
+    useEffect(()=>{
+        async function productsFetch(){
+            const data = await fetch("https://api.mercadolibre.com/sites/MLC/search?q=bolsos");
+            const items = await data.json();
+            setProducts(items.results);
+        }
+
+        productsFetch();
+
+    },[])
+
+    return(
+        <>
+            {products.map(item =>{return <ItemComponent key={item.id} itemInfo={item}/>})}
+        </>
+    );
 }
 
-export default itemList;
+export default ItemListComponent;

@@ -2,10 +2,9 @@ import React from 'react';
 import {useEffect, useState} from "react";
 import './style.scss';
 import ItemCountComponent from "../../components/ItemCount";
-import item from "../../components/item";
-import itemList from "../../components/itemList";
 
 
+//Se crea la funcion para hacer la promesa de la map de inventario//
   
 function products(){
 
@@ -15,7 +14,7 @@ function products(){
   useEffect (() => {
     const promesa = new Promise ((resolve, reject)=>{
     setTimeOut (function(){
-      resolve(productos);
+      resolve(baseDeDatos);
     }, 2000);
 
     }
@@ -28,7 +27,7 @@ function products(){
   return( 
     <div>
       <h2>{greeting} </h2>
-      { items ? <itemList items={items}/> : <h2>Loading </h2>}
+      { baseDeDatos ? <itemList items={baseDeDatos}/> : <h2>Loading </h2>}
 
     </div>
   )
@@ -95,22 +94,4 @@ const baseDeDatos = [
 
 }
 
-
-function ItemListContainer({Saludo}){
-
-    return(
-        <>
-            <h1>{Saludo}</h1>
-            <ItemCountComponent stock={10} initial={1}/>
-        </>
-        
-    );
-}
-
-
-export default ItemListContainer;
-
-
-
-
-export default productos;
+export default products;

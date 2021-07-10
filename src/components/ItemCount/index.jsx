@@ -1,4 +1,3 @@
-import { NavbarComponent} from '../../components/NavbarComponent';
 import { useState } from "react";
 import '.ItemCount.scss'
 
@@ -33,5 +32,5 @@ export function ItemCountComponent ({ stock, initial }) {
     )
 }
 
-export default App;
+export default ItemCountComponent;
     

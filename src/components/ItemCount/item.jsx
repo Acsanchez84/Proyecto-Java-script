@@ -2,11 +2,11 @@ import { identifier } from '@babel/types';
 import React from 'react'; 
 
 
-function item( { id, tittle, image}) {
+function item( { id, tittle, imagenes}) {
     return (
         <div>
             {tittle}
-            <img src= {image} alt= {tittle}/>
+            <img src= {imagenes} alt= {tittle}/>
         </div>
     )
 }
