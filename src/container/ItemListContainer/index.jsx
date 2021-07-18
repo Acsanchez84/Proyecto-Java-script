@@ -2,37 +2,38 @@ import React from 'react';
 import {useEffect, useState} from "react";
 import './style.scss';
 import ItemCountComponent from "../../components/ItemCount";
-
+import {useParams} from 'react-router-dom'
 
 //Se crea la funcion para hacer la promesa de la map de inventario//
-  
-function products(){
+ 
 
-  const [ items, setItems] = useState ([])
-  const [ fireItems, setFireItems] = useState ([])
+export const ItemListContainer = () => {
+  const [listProducts, setListProducts] =useState([]);
+  const {id} = useParams();
 
-  useEffect (() => {
-    const promesa = new Promise ((resolve, reject)=>{
-    setTimeOut (function(){
-      resolve(baseDeDatos);
-    }, 2000);
+       
+  useEffect(()=>{
 
-    }
-    )
+      async function getDataML(){
+          const response = await fetch("https://api.mercadolibre.com/sites/MLC/search?q=bolsos${id}");
+          const data = await response.json();
+          setListProducts(data.results);
+          
+      }
 
-    promesa.then( result => setItems(result))
-    promesa.catch( err = console.log("salio mal"))
-  }, []);
+      getDataML()
 
-  return( 
-    <div>
-      <h2>{greeting} </h2>
-      { baseDeDatos ? <itemList items={baseDeDatos}/> : <h2>Loading </h2>}
+  }, [id])
 
-    </div>
+  console.log(listProducts)
+
+  return (
+      <div>
+          <ItemListComponent productos= {listProducts}/>
+      </div>
   )
-
-
+}
+  
 
 const baseDeDatos = [
   {
@@ -92,6 +93,6 @@ const baseDeDatos = [
 
 ];
 
-}
+
 
 export default products;

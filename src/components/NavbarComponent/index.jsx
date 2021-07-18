@@ -1,61 +1,38 @@
 import React from 'react'
-import './style.scss';
-import CartWidged from "../CartwidgedComponent";
-import {Nav, NavDropdown, Button, FormControl, Form, NavBar} from 'react-bootstrap'
-import imaagenes from "../../public/imagenes/carrito.jpg"
+import './navbar.scss'
+import logo from '../.././logo.jpg'
+import {CartWidgetComponent} from '../CartWidgetComponent.jsx'
+import {Link} from 'react-router-dom'
 
 
-function Navbar(){
-    
+export function NavbarComponent () {
     return(
+        <nav className="navbar navbar-expand-lg">
+            <div className="container-fluid">
 
+                <div id = 'navbar' className="navbar-brand">
+                <img src={logo} height="100px" alt="logo" />
+                    <a >VICA FOR YOU</a>
+                </div>
 
-<>
-<nav className="contenedorPadre col-12">
+                <div className="col-sm-6 col-md-6 col-lg-2">
 
-<a href="index.html">
-  
-<img src="/logo.jpg" width="150px" /></a>
+                <ul className="navbar-nav">
 
-					<ul className="row">
-			
-						
-						<ol className="barraNavegacion col-12 col-sm-4 col-md-2"><a href="contacto.html"> Contacto </a>  </ol>
+                    <li className="nav-item"><span  id = 'txtnavbar'>Contacto</span></li>
+                    <li className="nav-item"><span  id = 'txtnavbar'>Portafolio</span></li>
+                    <li className="nav-item"><span  id = 'txtnavbar'>Quienes Somos</span></li>
+                    <li className="nav-item"><span  id = 'txtnavbar'>Regalo</span></li>
+                    <li className="nav-item"><span  id = 'txtnavbar'>Tendencia</span></li>
+                   
+                    
+                </ul>
+            </div>
+                <CartWidgetComponent />
 
-						<ol className="barraNavegacion col-12 col-sm-4 col-md-2"><a href="Portafolio.html"> Portafolio </a> </ol>
-				
-						<ol className="barraNavegacion col-12 col-sm-4-6 col-md-2"> <a href="Quienessomos.html"> Quienes Somos </a></ol>
-			
-						<ol className="barraNavegacion col-12 col-sm-4 col-md-2" ><a href="regalos.html"> Regalos </a> </ol>
+            </div>
 
-						<ol className="barraNavegacion col-12 col-sm-4 col-md-2"> <a href="tendencias.html"> Tendencia </a> </ol>
+        </nav>
+    )
 
-                        <ol> <img src="imagenes/carrito.jpg 0.5px"/> </ol>
-            
-				</ul>
-	
-				</nav>
-
-                <h1 className="barraNavegacion col-12">  VICA FOR YOU </h1>
-      
-      
-            <h2>Somos bolsos, moda y accesorios</h2>
-
-
-                 <p>
-
-  Existen un sin fín de blogs sobre moda y tendencias, pero… ¿qué hay de los accesorios, de esos grandes aliados que pueden marcar la diferencia en nuestros outfits y looks? Ellos también se merecen un espacio, por eso hemos querido hablar de algunos de los mejores accesorios como los bolsos, los cuales encuentras de todos los tamaños, estilos y colores!! Visita VICA marca colombiana especializada en la fabricación de bolsos que embellecen y empoderan a la mujer moderna sin dejar de lado a nuestro pùblico masculino gran protagonista de nuestra historia.
-                </p>
-  
-                </>
-    );
-  }
-  
-
-
-  
-  
-  
-
-    export default Navbar; 
-  
+}
