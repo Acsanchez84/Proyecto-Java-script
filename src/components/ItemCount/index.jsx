@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import '.ItemCount.scss'
 import ItemComponent from "../ItemComponent";
 import { Button } from "bootstrap";
+import { CartContext } from "../contextComponent/cartContex";
 
 //Aqui se encuentra la funcion de sumar y restar en el carrito//
 

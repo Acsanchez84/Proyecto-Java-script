@@ -4,16 +4,15 @@ import './App.css';
 import { footer } from './components/footerComponent';
 import{Navbarcomponent} from '/.components/NavbarComponent';
 import ItemListContainer from './components/ItemListContainer';
-import CardComponent from './CardComponent';
-import {BrowserRouter, Switch, Router} from 'react-router-dom';
 import ItemComponent from "./components/ItemComponent";
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
-
+import CartProvider from './context/CartContext';
 
  
 function App() {
   return (
     <>
+    <CartProvider>
       <BrowserRouter>
 
         <NavbarComponent/>
@@ -39,6 +38,8 @@ function App() {
    
         <footer/>
       </BrowserRouter>
+      
+      </CartProvider>
     </>
 
   );
