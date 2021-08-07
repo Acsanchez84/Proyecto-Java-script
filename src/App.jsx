@@ -7,8 +7,26 @@ import ItemListContainer from './components/ItemListContainer';
 import ItemComponent from "./components/ItemComponent";
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import CartProvider from './context/CartContext';
+import { useEffect } from "react";
+import { getFirestore } from "./firebase";
 
+
+useEffect(()=> {
+  const db = firestore
+  const collection = db.collection('productos')
+  const query = collection.get()
+  query
+  .then((result) => { 
+    serFireItemss(result).docs.map(p => ({id: p.id, ...p.data()}))
+  
+})
+.catch((error) => {
+  console.log(error)
+
+}) 
  
+ }, [fireItems])
+
 function App() {
   return (
     <>
